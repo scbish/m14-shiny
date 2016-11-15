@@ -1,8 +1,9 @@
 # server.R
 library(dplyr)
+library(plotly)
+library(shiny)
 
 # Read in data
-setwd('~/Documents/info-201/m14-shiny/exercise-3/')
 source('./scripts/buildMap.R')
 df <- read.csv('./data/electoral_college.csv', stringsAsFactors = FALSE)
 state.codes <- read.csv('./data/state_codes.csv', stringsAsFactors = FALSE)
@@ -18,6 +19,6 @@ shinyServer(function(input, output) {
   
   # Render a plotly object that returns your map
   output$map <- renderPlotly({ 
-      return(BuildMap(joined.data, 'population'))
+      return(BuildMap(joined.data, input$column))
   })
 })

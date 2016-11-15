@@ -8,7 +8,7 @@ library(plotly)
 # I suggest: https://plot.ly/r/bubble-maps/
 BuildMap <- function(data) {
   
-  
+  plot_ly(data = data, type = "scatter", mode = "markers")
   
 
   
